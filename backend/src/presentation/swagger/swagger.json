@@ -1,0 +1,196 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Project Ajala API Documentation",
+        "version": "1.0.0",
+        "title": "Ajala API",
+        "contact": {
+            "email": "contact@cbn.gov.ng"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "schemes": ["http"],
+    "host": "localhost:3000",
+    "basePath": "/api/v1",
+    "paths" : {
+        
+        "/booking" : {
+            "post" : {
+                "summary" : "Book a flight",
+                "description": "Save passenger information in postgress",
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Booking object",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "Booking" : {
+                                    "type": "object",
+                                    "$ref": "#/definitions/Booking"
+                                } 
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/SuccessResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            },
+            "get" : {
+                "summary" : "Fetch all submited requests",
+                "description": "Fetch all submited bookings",
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+    
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/SuccessResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        }
+      
+    
+    }, 
+    "definitions": {
+        "Booking": {
+            "type": "object",
+            "properties": {
+                "origin": {
+                    "type": "string",
+                    "required": true
+                },
+                "destination": {
+                    "type": "string",
+                    "required": true
+                },
+                "passenger_type": {
+                    "type": "string",
+                    "enum": [ "Adult", "Child"],
+                    "required": true
+                },
+                "first_name": {
+                    "type": "string",
+                    "required": true
+                },
+                "last_name": {
+                    "type": "string",
+                    "required": true
+                },
+                "date_of_birth": {
+                    "type": "string",
+                    "format":"date",
+                    "example":"2019-02-01",
+                    "required": true
+                },
+                "gender": {
+                    "type": "string",
+                    "enum": [ "Male", "Female","Others"],
+                    "required": true
+                },
+                "title": {
+                    "type": "string",
+                    "enum": [ "Mr", "Mrs","Alhaji","Mallam"],
+                    "required": true
+                },
+                "email_address": {
+                    "type": "string",
+                    "required": true
+                },
+                "phone_number": {
+                    "type": "string",
+                    "required": true
+                },
+                "staff_id": {
+                    "type": "integer",
+                    "example":27699,
+                    "required": true
+                },
+                "trip_type": {
+                    "type": "string",
+                    "enum": [ "Round Trip", "One Way"],
+                    "required": true
+                },
+                "depature_date": {
+                    "type": "string",
+                    "format":"date",
+                    "example":"2019-02-01",
+                    "required": true
+                },
+                "return_date": {
+                    "type": "string",
+                    "format":"date",
+                    "example":"2019-02-01",
+                    "required":true
+
+                }
+            }
+        },
+        "SuccessResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "status_code": {
+                    "type": "integer",
+                    "example":200
+                },
+                "data": {
+                    "type": "object"
+                }
+            }
+
+        },
+        "InvalidResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "status_code": {
+                    "type": "integer",
+                    "example":400
+                },
+                "data": {
+                    "type": "object"
+                }
+            }
+
+        }
+    }
+}

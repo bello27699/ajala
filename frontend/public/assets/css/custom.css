@@ -1,0 +1,24 @@
+.remove-bottom-border div:before, .remove-bottom-border div:after {
+    border-bottom: 0px !important;
+}
+
+.remove-bottom-border div div:focus {
+    background-color: #FFFFFF !important;
+}
+
+.router-link-anchor {
+    color: #00ab55;
+    text-decoration: none;
+}
+
+.router-link-button {
+    text-decoration: none;
+}
+
+.router-link-anchor:hover {
+    text-decoration: underline;
+}
+
+.accordion-customizer div {
+    box-shadow: none !important;
+}

@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "lib": ["es5", "es6"],
+    "target": "es6",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["./*"]
+    },
+    "outDir": "./dist"
+  }
+}

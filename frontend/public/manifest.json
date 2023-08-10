@@ -1,0 +1,20 @@
+{
+  "name": "CBN Duty Tour Management System",
+  "short_name": "DTMS",
+  "display": "standalone",
+  "start_url": "/",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "favicon/ajala.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "ajala.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

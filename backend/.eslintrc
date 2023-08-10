@@ -1,0 +1,36 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint"],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "next/babel",
+      "next/core-web-vitals"
+    ],
+    "rules": {
+      "semi": "error",
+      "indent": ["error", 2, { "SwitchCase": 1 }],
+      "@typescript-eslint/quotes": [
+        "error",
+        "double",
+        {
+          "avoidEscape": true,
+          "allowTemplateLiterals": true
+        }
+      ]
+    },
+    "overrides": [
+      {
+        "files": ["src/domain/models/*.ts"],
+        "rules": {
+          "indent": ["off"]
+        }
+      }
+    ],
+    "globals": {
+      "google": "readonly"
+    }
+  }
+  
